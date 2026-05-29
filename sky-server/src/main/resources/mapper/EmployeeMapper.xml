@@ -2,4 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sky.mapper.EmployeeMapper">
+
+    <!--根据主键修改员工属性
+    parameterType: 参数类型，可省略；此处使用的是类的别名而非全名（com.sky.mapper.EmployeeMapper）
+    再配置已经进行了包的映射，所有包会自动生成别名，因此此处可以直接使用-->
+    <update id="update" parameterType="Employee">
+    update  employee
+    <set>
+        <if test="name != null and name != ''"> name = #{name},</if>
+        <if test="username != null and username != ''"> username = #{username},</if>
+        <if test="password != null and name != ''"> password = #{password},</if>
+        <if test="phone != null and phone != ''"> phone = #{phone},</if>
+        <if test="sex != null and sex != ''"> sex = #{sex},</if>
+        <if test="idNumber != null and idNumber != ''"> idNumber = #{idNumber},</if>
+        <if test="updateTime != null "> update_time = #{updateTime},</if>
+        <if test="status != null"> status = #{status},</if>
+    </set>
+        where id = #{id};
+    </update>
+
+    <!--员工分页查询-->
+    <select id="pageQuery" resultType="com.sky.entity.Employee">
+        select * from employee
+            <where>
+                <if test="name != null and name != ''">
+                    and name like concat('%', #{name}, '%')
+                </if>
+            </where>
+        order by create_time desc
+    </select>
 </mapper>
