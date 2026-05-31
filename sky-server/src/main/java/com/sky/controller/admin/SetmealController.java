@@ -8,6 +8,7 @@ import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.SetmealService;
 import com.sky.vo.SetmealVO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -17,9 +18,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 套餐管理模块Controler层
+ * 套餐相关接口
  */
 @Slf4j
+@Api(tags = "套餐相关接口")
 @RequestMapping("/admin/setmeal")
 @RestController
 public class SetmealController {

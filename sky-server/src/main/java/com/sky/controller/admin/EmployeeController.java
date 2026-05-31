@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 员工管理
+ * 员工相关接口
  */
 //Api: 用在类上表示对类的说明
 @Api(tags = "员工相关接口")
