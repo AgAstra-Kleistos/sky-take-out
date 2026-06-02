@@ -45,10 +45,10 @@ public interface DishMapper {
 
     /**
      * 根据分类id查询菜品
-     * @param categoryId
+     * @param dish
      * @return
      */
-    List<DishVO> list(Long categoryId);
+    List<Dish> list(Dish dish);
 
     /**
      * 菜品分页查询
@@ -73,4 +73,11 @@ public interface DishMapper {
     @AutoFill(value = OperationType.UPDATE)
     void update(Dish dish);
 
+
+    /**
+     * 根据套餐id查询菜品
+     * @param setmealId
+     * @return
+     */
+    List<Dish> getBySetmealId(Long setmealId);
 }

@@ -57,11 +57,19 @@
     </select>
 
     <!--根据分类id查询菜品-->
-    <select id="list" resultType="com.sky.vo.DishVO">
+    <select id="list" resultType="Dish">
         select * from dish where status = 1
         <if test="categoryId != null">
             and category_id = #{categoryId}
         </if>
+
         order by create_time desc
+    </select>
+
+    <!--根据套餐id查询菜品-->
+    <select id="getBySetmealId" resultType="com.sky.entity.Dish">
+        select a.* from dish a
+        left join setmeal_dish b on a.id = b.dish_id
+        where b.setmeal_id = #{setmealId}
     </select>
 </mapper>

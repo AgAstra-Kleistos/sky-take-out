@@ -15,14 +15,14 @@ public interface SetmealDishMapper {
      * 根据套餐id插入批量菜品
      * @param setmealDishes
      */
-    @AutoFill(value = OperationType.INSERT)
-    void insert(List<SetmealDish> setmealDishes);
+    //@AutoFill(value = OperationType.INSERT)
+    void insertBatch(List<SetmealDish> setmealDishes);
 
     /**
      * 根据套餐ids批量删除套餐菜品
      * @param setmealIds)
      */
-    void deleteBysetmealIds(List<Long> setmealIds);
+    void deleteBySetmealIds(List<Long> setmealIds);
 
     /**
      * 根据套餐id查询菜品

@@ -2,6 +2,7 @@ package com.sky.controller.admin;
 
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
+import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
@@ -84,10 +85,10 @@ public class DishController {
      */
     @ApiOperation("根据分类Id查询菜品")
     @GetMapping("/list")
-    public Result<List<DishVO>> list(Long categoryId){
+    public Result<List<Dish>> list(Long categoryId){
 
         log.info("根据分类Id查询菜品：{}", categoryId);
-        List<DishVO> list = dishService.list(categoryId);
+        List<Dish> list = dishService.list(categoryId);
         return Result.success(list);
     }
 
@@ -128,7 +129,7 @@ public class DishController {
      * @return
      */
     @ApiOperation("起售、停售菜品")
-    @GetMapping("/status/{status}")
+    @PostMapping("/status/{status}")
     public Result startOrStop(@PathVariable Integer status){
 
         log.info("起售、停售菜品：{}", status);

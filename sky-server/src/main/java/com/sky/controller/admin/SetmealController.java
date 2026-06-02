@@ -88,6 +88,11 @@ public class SetmealController {
 
     }
 
+    /**
+     * 修改套餐
+     * @param setmealDTO
+     * @return
+     */
     @ApiOperation("修改套餐")
     @PutMapping
     public Result update(@RequestBody SetmealDTO setmealDTO){
