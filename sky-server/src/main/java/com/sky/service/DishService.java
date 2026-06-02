@@ -60,6 +60,6 @@ public interface DishService {
      * 起售、停售菜品
      * @param status
      */
-    void startOrStop(Integer status);
+    void startOrStop(Integer status, Long id);
 
 }
